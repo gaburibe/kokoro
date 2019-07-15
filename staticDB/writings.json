@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "id": "nWsUSpkvh",
+      "title": "Historias de ciencia y ficción 1.1",
+      "markup": "<h1><b>Digital Representation: Finite and Infinite Information</b></h1><h5><b><br></b></h5><h5><b>Information is the basis in which a computer operates. when we talk about digital conversion, the word itself implies a transformation of an event that occurs in the real world into \"digits\" or units. </b></h5><h5><b>In this chapter we analize&nbsp;the process in which real events are transformed into information to be operated by a computer and the implications of digitalization.</b></h5><h5><b><br></b></h5><p><br></p><p>Let's start by working with an example to better show how it is that computers are used to model the world. Music is in this sense a perfect example, mainly because it is something we all have experience with and much of the internet and therefore computer usage is geared towards music listening or creation.&nbsp;&nbsp;</p><p>As a physical phenomena, music can be seen as the conscious manipulation of sound waves. Sound is a transference of energy through a medium, normally air, in a range that our sensors (auditory system) can perceive. This distinction is important because x-rays are also waves of energy that we are not equiped to sense, and we don't call x-ray's sound, only what our ears can catch.&nbsp; &nbsp;</p><p><br></p><p><img src=\"https://israelsaepblog.files.wordpress.com/2014/12/sampling.png?w=557&amp;h=245\" style=\"width: 524px;\"><br></p><p><img src=\"http://pgfplots.net/media/tikz/examples/PNG/fourier-transform.png\" style=\"width: 474px;\"><b><br></b></p><p><img src=\"https://vignette.wikia.nocookie.net/digital-audio/images/6/68/SamplingPic.jpg/revision/latest?cb=20140413223513\" style=\"width: 25%;\"></p><p><br></p>"
+    },
+    {
+      "id": "og119Mwit",
+      "title": "Historias de ciencia y ficción INTRO",
+      "markup": "<p><br></p>"
+    }
+  ],
+  "user": {},
+  "count": 0
+}

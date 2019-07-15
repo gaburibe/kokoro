@@ -1,0 +1,25 @@
+{
+  "name": "fuckyouall",
+  "version": "1.0.0",
+  "description": "Web File Manager OS",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js views/index/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "docx-templates": "^3.0.0",
+    "express": "^4.17.1",
+    "fast-csv": "^3.0.1",
+    "ip": "^1.1.5",
+    "lowdb": "^1.0.0",
+    "moment": "^2.24.0",
+    "nodemon": "^1.19.1",
+    "shortid": "^2.2.14",
+    "youtube-mp3-downloader": "^0.5.3",
+    "ytdl-core": "^0.29.2"
+  }
+}

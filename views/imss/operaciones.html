@@ -1,0 +1,143 @@
+<html>
+<head>
+  <title>Express HTML</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div style="margin:100px;">
+    <nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <a class="navbar-brand" href="/"><span style="color:red">❤ Kokoro</span></a>
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a href="/">Home </a>
+      </li>
+      <li>
+        <a href="/imss">IMSS</a>
+      </li>
+      <li>
+        <a href="/tesofe">TESOFE</a>
+      </li>
+      <li>
+        <a href="/oficios">OFICIOS</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class="jumbotron"  style="padding:40px;">
+      <h1>Alta</h1>
+      <p>generar alta en el IMSS</p>
+      <table>
+        <tr>
+          <td>Fecha</td>
+          <td><input type="text" id="alta_fecha"></td>
+          <td>La fecha de alta debe ser menor a 5 dias anteriores a su elaboración</td>
+        </tr>
+        <tr>
+          <td>Nombre</td>
+          <td><input type="text" id="alta_nombre"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Apeído paterno</td>
+          <td><input type="text" id="alta_ap1"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Apeído materno</td>
+          <td><input type="text" id="alta_ap2"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Número de seguridad social</td>
+          <td><input type="text" id="alta_nss" ></td>
+          <td>11 caracteres</td>
+        </tr>
+        <tr>
+          <td>CURP</td>
+          <td><input type="text" id="alta_curp" ></td>
+          <td>18 caracteres</td>
+        </tr>
+
+      </table>
+       <br>
+       Apeído materno<br>
+       Número de seguridad social<br>
+       CURP<br>
+      <button type="button" class="btn btn-primary" onclick="alta()">generar alta</button>
+    </div>
+    <div class="jumbotron"  style="padding:40px;background-color: grey;">
+      <h1>Baja</h1>
+      <p>generar baja en el IMSS</p>
+      <table>
+        <tr>
+          <td>Fecha</td>
+          <td><input type="text" id="baja_fecha"></td>
+          <td>La fecha de baja debe ser menor a 5 dias anteriores a su elaboración</td>
+        </tr>
+        <tr>
+          <td>Nombre</td>
+          <td><input type="text" id="baja_nombre"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Apeído paterno</td>
+          <td><input type="text" id="baja_ap1"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Apeído materno</td>
+          <td><input type="text" id="baja_ap2"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Número de seguridad social</td>
+          <td><input type="text" id="baja_nss"></td>
+          <td>11 caracteres</td>
+        </tr>
+        <tr>
+          <td>CURP</td>
+          <td><input type="text" id="baja_curp"></td>
+          <td>18 caracteres</td>
+        </tr>
+
+      </table>
+      <button type="button" class="btn btn-primary" onclick="baja()">generar baja</button>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  function baja(){
+
+    send={};
+    send.fecha=$("#baja_fecha").val();
+    send.nombre=$("#baja_nombre").val();
+    send.ap1=$("#baja_ap1").val();
+    send.ap2=$("#baja_ap2").val();
+    send.nss=$("#baja_nss").val();
+    send.curp=$("#baja_curp").val();
+    $.post("baja",send, function(data){
+      console.log("saved",data)
+    });
+    console.log(send)
+
+  }
+  function alta(){
+    send={};
+    send.fecha=$("#alta_fecha").val();
+    send.nombre=$("#alta_nombre").val();
+    send.ap1=$("#alta_ap1").val();
+    send.ap2=$("#alta_ap2").val();
+    send.nss=$("#alta_nss").val();
+    send.curp=$("#alta_curp").val();
+    $.post("alta",send, function(data){
+      console.log("saved",data)
+    });
+  }
+
+
+</script>
+</html>

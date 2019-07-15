@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title>Express HTML</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div style="margin:100px;">
+    <nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <a class="navbar-brand" href="/"><span style="color:red">❤ Kokoro</span></a>
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a href="/">Home </a>
+      </li>
+      <li>
+        <a href="/imss">IMSS</a>
+      </li>
+      <li>
+        <a href="/tesofe">TESOFE</a>
+      </li>
+      <li>
+        <a href="/oficios">OFICIOS</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class="jumbotron"  style="padding:40px;">
+      <h1>Kokoro V1.0 - OFICIOS</h1>
+      <p>Para generar un reporte seleccione una CLC</p>
+      <button id="create">CREAR OFICIO</button>
+      <div id="downlink"></div>
+      <!-- <p><a class="btn btn-primary btn-lg" href="DIARY.txt" role="button">Diario</a></p> -->
+    </div>
+  </div>
+  <script type="text/javascript">
+  	
+  	$("#create").click(function(){
+  		data={
+  			oficio: "300/1/262-1/2019",
+		  beneficiarios: "6,900",
+		  importe: "$24,840,000.00",
+		  fecha: "Ciudad de México 21 de febrero de 2019"
+  		}
+
+  	  $.ajax({
+        url: '/reportes/clc',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({"data": data}),
+        success: function(response){
+        	$("#downlink").html(response);
+        	//console.log(response); 
+        }
+    	});
+	  // $.post("/reportes/clc",data, function(data, status){
+	    
+	  // });
+	});
+
+  </script>
+</body>
+</html>

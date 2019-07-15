@@ -1,0 +1,8 @@
+KOKORO
+
+Este es un diario de desarrollo
+
+Notas generales
+La meta de Kokoro es eventualmente desarrollar un sistema operativo usando tecnología web y node como su operador principal. 
+
+La tecnología básica es express y
