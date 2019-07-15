@@ -59,7 +59,7 @@ app.use('/imss', imss);
 
 // POST method route
 app.post('/', function (req, res) {
-  res.send('POST request to the homepage');
+  res.send('POST request to the homepage',process.env.PORT);
 });
-
-app.listen(1313);
+app.listen(process.env.PORT || 1313)
+//app.listen(1313);
