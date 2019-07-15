@@ -4,7 +4,7 @@
   "description": "Web File Manager OS",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js views/index/index.html",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
