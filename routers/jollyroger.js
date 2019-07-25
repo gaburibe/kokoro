@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
 const fs = require('fs');
-const ytdl = require('ytdl-core');
+var Downloader = require("../local_modules/downloader");
+ 
+var dl = new Downloader();
+var i = 0;
 
 	
  
@@ -18,9 +21,14 @@ router.get('/', function(req, res) {
 });
 // define the about route
 router.get('/steal', function(req, res) {
-	ytdl('https://www.youtube.com/watch?v=oGmqDLJekBE', 
-		{filter: 'audioonly'}).pipe(fs.createWriteStream('audio/icantalk.mp3'));
-  // res.send('About birds');
+	dl.getMP3({videoId: "H833o5lnB2E", name: "pets-porno for pyros.mp3"}, function(err,res){
+	    i++;
+	    if(err)
+	        throw err;
+	    else{
+	        console.log("Song "+ i + " was downloaded: " + res.file);
+	    }
+	});
 });
 
 module.exports = router;

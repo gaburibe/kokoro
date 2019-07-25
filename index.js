@@ -35,6 +35,10 @@ app.get('/',function(req,res){
   res.sendFile(path.join(__dirname+'/views/index/index.html'));
   //__dirname : It will resolve to your project folder.
 });
+app.get('/seg',function(req,res){
+  res.sendFile(path.join(__dirname+'/views/index/seg.html'));
+  //__dirname : It will resolve to your project folder.
+});
 app.get('/oficios',function(req,res){
   res.sendFile(path.join(__dirname+'/views/index/oficios.html'));
   //__dirname : It will resolve to your project folder.

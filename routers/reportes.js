@@ -56,12 +56,13 @@ DINAMO=[];
  	fecha=data[1].trim();
  	oficio=data[7].trim();
  	beneficiarios=data[4].trim();
+ 	ben=beneficiarios.split(".");
  	importe=data[3].trim();
  	filename="reportes/folios/FOLIO_"+data[0]+".docx";
 
  	mongoose={
   			oficio: oficio,
-		  beneficiarios: beneficiarios,
+		  beneficiarios: ben[0],
 		  importe: importe,
 		  fecha: fecha,
 		  name: filename
@@ -83,7 +84,7 @@ DINAMO=[];
  			//moon.fecha=nufech;
  			//moment().format('LL')
  			createReport({
-			  template: 'docxTemplates/oficionuevo.docx',
+			  template: 'docxTemplates/oficio2.docx',
 			  output: moon.name,
 			  data: moon,
 			});
