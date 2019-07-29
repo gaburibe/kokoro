@@ -49,13 +49,15 @@ canvas{
 .overdiv{
   filter: hue-rotate(90deg);
     /*background: url(img/dirtybeach.jpg);*/
-    background: url(http://thegardenreview.net/balls/clouds1.gif);
-    background-size: cover;
+   /* background: url(http://thegardenreview.net/balls/clouds1.gif);*/
+   background:url(https://i.gifer.com/origin/9d/9df82cf6b4d9322d686dd6681b1eb430_w200.gif);
+    background-size: 15px;
     position: fixed;
     top:0px;
     z-index: -2;
     width:100vw;
     height:100vh;
+    /*opacity: .5;*/
   }
   .overdiv2{
     /*background: url(img/dirtybeach.jpg);*/
@@ -65,8 +67,9 @@ canvas{
     position: fixed;
     top:0px;
     z-index: -1;
-    width:100vw;
+    width:50vw;
     height:100vh;
+    opacity:.5;
   }
 .miau{
 	font-size: 10vw !important;
@@ -77,171 +80,67 @@ canvas{
   bottom:0px;
   right:10%;
   height:100px;
-   background: url(img/static.gif) !important;
-  border: white solid 8px;
+/*   background: url(img/static.gif) !important;
+*/  border: white solid 8px;
   color:red;
 }
+.marquee {
+    position: absolute;
+    bottom:0px;
+    font-family: gothic;
+    width: 100vw;
+    overflow: hidden;
+    /* border: 1px solid #ccc; */
+    background: black;
+    height: 100px;
+    font-size: 80px;
+    color: yellow;
+}
+.contentainer{
+
+}
+body{
+  background-color: blue !important;
+  background: url(http://cdn.lowgif.com/full/315a3ddc56aa6245-gifs-scenery-anime-scenery-free-freegif-free-eternal.gif); /*http://25.media.tumblr.com/2e12bb39c1bb420f3d5fc6df98c1a45e/tumblr_mrc8yixqY01rvnxj8o1_500.gif*/
+  background-size: cover;
+}
 </style>
+
 <head>
   <title class="xerox">KOKORO</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type='text/javascript' src='//cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js'></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
-<div class="overdiv"></div>
-<div class="overdiv2"></div>
+
 
 <body>
-	<h1 class="xerox" style="background-color: white;color:red;text-align: right;">-</h1>
-  <div style="margin:100px;">
-    
-    <div class="jumbotron"  style="padding:10px;text-align: center;">
-      
-      <!-- <p class="xeroxC">『(っ◔◡◔)っ </p> --><p class="miau"><img style="width:150px" src="img/logo.png"></p>
+<div class="overdiv"></div>
+<div class="contentainer">
   
-    </div>
-  </div>
-  <canvas id="para"></canvas>
-  <div class="downmiau"></div>
+
+</div>
+<div class="marquee">|| S E G : Sin Espacio galería <img src="img/pika.gif" style="height:80px;"> 
+ || :) !!!!!!! S E G : Sin Espacio galería
+ || <img src="https://media3.giphy.com/media/27wc7vMWPvvJC/giphy.gif" style="height:80px;">Abierto: 9:00 A.M. -> 10 P.M.
+ || .......................
+</div>
+<br>
+
+<!-- jQuery (check data attribute to disable CSS3 animation support)
+<div class="marquee" data-allowCss3Support='false'>jQuery marquee is the best marquee plugin in the world</div> -->
+
+
+
 </body>
 <script type="text/javascript">
-  var canvas = document.getElementById('para');
-    сtx = canvas.getContext('2d');
-    
-canvas.height = document.documentElement.clientHeight*.8;
-canvas.width = document.documentElement.clientWidth/13;
 
-document.body.appendChild(canvas);
+$('.marquee').marquee({duration: 10000,gap: 50});
 
-сtx.fillStyle = 'black';
-сtx.fillRect(0,0,canvas.width,canvas.height);
-
-// VHS glitch options
-var lineLifeMin = 40,
-    lineLifeMax = 150,
-    maxLines = 8,
-    lineMinHeight = 2,
-    lineMaxHeight =40,
-    lineVYMin = 0,
-    lineVYMax = 3.5,
-    glitchPerFrameMin = 1,
-    glitchPerFrameMax = 2,
-    
-    glitchParticleAmp = 30,
-    glitchVAmpMin = -100,
-    glitchVAmpMax = -200,
-    glitchMinHeight = 1,
-    glitchMaxHeight = 3,
-    glitchMinWidth = 60,
-    glitchMaxWidth = 200;
-
-
-// Hashes 
-var glitchLines = {},
-    LinesCount = 0,
-    linesLength = 0;
-
-
-function rand(min,max){
-  return Math.random() * (max - min) + min;
-}
-
-function background(){
-  сtx.fillStyle = 'rgba(300,300,300,'+rand(0.01,0.2)+')';
-  сtx.fillRect(0,0,canvas.width,canvas.height);
-}
-
-function glitchLine() {
-  this.height = rand(lineMinHeight,lineMaxHeight);
-  // Start Y and end Y   
-  this.sy = rand(0,canvas.height);
-  this.ey = this.sy + this.height;
-  this.vy = rand(lineVYMin,lineVYMax);
-  this.gpf = rand(glitchPerFrameMin,glitchPerFrameMax);
-  
-  this.particles = {};
-  this.particleCount = 0;
-  
-  this.life = rand(lineLifeMin,lineLifeMax);
-  linesLength++;
-  LinesCount++;
-  glitchLines[LinesCount] = this;
-  this.id = LinesCount;
-  
-}
-
-function glitchParticle(id,sy,ey){
-  this.y = rand(sy,ey);
-  this.x = rand(0, canvas.width + 50);
-  this.vx = rand(glitchVAmpMin,glitchVAmpMax);
-  this.vy = 2;
-  this.width = rand(glitchMinWidth,glitchMaxWidth);
-  this.height = rand(glitchMinHeight,glitchMaxHeight)
-  this.color = 'rgba(255,255,255,'+rand(-1.5,1)+')';
-  
-  this.lineId = id;
-  glitchLines[id].particleCount += 1;
-  this.id = glitchLines[id].particleCount;
-  glitchLines[id].particles[this.id] = this;
-  
-}
-
-glitchLine.prototype.draw = function(){
-  this.sy += this.vy;
-  this.ey += this.vy;
-  
-  for (var i in this.particles){
-    this.particles[i].draw();
-  }
-  this.life -= 1;
-  
-  for (var i = 0;i< this.gpf;i++){
-    new glitchParticle(this.id,this.sy,this.ey);
-  }
 
   
-  if (this.life <= 0 || this.sy > canvas.height){
-    delete glitchLines[this.id];
-    linesLength -= 1;
-  }
-}
-
-glitchParticle.prototype.draw = function(){
-  this.x += this.vx;
-  this.y += this.vy;
-  this.width /= 0.992;
-  
-  if (this.x < 0){
-    delete glitchLines[this.lineId][this.id];
-  }
-  
-  
- сtx.fillStyle = this.color;
- сtx.fillRect(this.x,this.y,this.width,this.height);
-  
-}
-
-for(var i = 0;i<maxLines;i++){
-  setTimeout(function(){
-    new glitchLine();
-  },rand(10,400));
-}
-
-setInterval(function(){
-  background();
-  
-  if (linesLength < maxLines){
-    new glitchLine();
-    сtx.fillStyle = 'black';
-сtx.fillRect(0,0,canvas.width,canvas.height);
-  }
-  
-  for (var i in glitchLines){
-    glitchLines[i].draw();
-  }
-},5);
-
 
 </script>
 </html>

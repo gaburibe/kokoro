@@ -66,7 +66,7 @@ router.post('/baja', function(req, res) {
 		    if(err) {
 		        return console.log("error:",err);
 		    }
-		    res.download(__dirname+'/../public/imss/bajas.txt');
+		    res.send('bajas.txt');
 		    console.log("DONE BAJAS");
 		});
   

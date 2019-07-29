@@ -121,6 +121,7 @@
     send.curp=$("#baja_curp").val();
     $.post("baja",send, function(data){
       console.log("saved",data)
+      window.open(data);
     });
     console.log(send)
 
